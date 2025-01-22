@@ -53,3 +53,59 @@ POST /users/register
 - First name must be at least 3 characters long
 - Email must be a valid email format
 - Password must be at least 6 characters long
+
+## Login User
+Authenticates a user and returns a JWT token.
+
+### Endpoint
+```
+POST /users/login
+```
+
+### Request Body
+```json
+{
+  "email": "string",    // valid email format
+  "password": "string"  // minimum 6 characters
+}
+```
+
+### Response
+
+#### Success (200 OK)
+```json
+{
+  "token": "jwt_token_string",
+  "user": {
+    "fullname": {
+      "firstname": "string",
+      "lastname": "string"
+    },
+    "email": "string",
+    "_id": "string"
+  }
+}
+```
+
+#### Error (401 Unauthorized)
+```json
+{
+  "message": "Invalid email or password"
+}
+```
+
+#### Error (400 Bad Request)
+```json
+{
+  "errors": [
+    {
+      "msg": "error message",
+      "param": "field_name"
+    }
+  ]
+}
+```
+
+### Validation Rules
+- Email must be a valid email format
+- Password must be at least 6 characters long

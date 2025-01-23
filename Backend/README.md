@@ -109,3 +109,66 @@ POST /users/login
 ### Validation Rules
 - Email must be a valid email format
 - Password must be at least 6 characters long
+
+## Get User Profile
+Returns the current user's profile information.
+
+### Endpoint
+```
+GET /users/profile
+```
+
+### Headers
+```
+Authorization: Bearer jwt_token_string
+```
+
+### Response
+
+#### Success (200 OK)
+```json
+{
+  "fullname": {
+    "firstname": "string",
+    "lastname": "string"
+  },
+  "email": "string",
+  "_id": "string"
+}
+```
+
+#### Error (401 Unauthorized)
+```json
+{
+  "message": "Unauthorized"
+}
+```
+
+## Logout User
+Logs out the current user and invalidates their token.
+
+### Endpoint
+```
+GET /users/logout
+```
+
+### Headers
+```
+Authorization: Bearer jwt_token_string
+```
+
+### Response
+
+#### Success (200 OK)
+```json
+{
+  "message": "Logged out successfully"
+}
+```
+
+#### Error (401 Unauthorized)
+```json
+{
+  "message": "Unauthorized"
+}
+```

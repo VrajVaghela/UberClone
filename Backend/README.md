@@ -172,3 +172,178 @@ Authorization: Bearer jwt_token_string
   "message": "Unauthorized"
 }
 ```
+
+# Captain API Documentation
+
+## Register Captain
+Creates a new captain account.
+
+### Endpoint
+```
+POST /captains/register
+```
+
+### Request Body
+```json
+{
+  "fullname": {
+    "firstname": "string",   // minimum 3 characters
+    "lastname": "string"     // minimum 3 characters
+  },
+  "email": "string",        // valid email format
+  "password": "string"      // minimum 6 characters
+}
+```
+
+### Response
+
+#### Success (201 Created)
+```json
+{
+  "token": "jwt_token_string",
+  "captain": {
+    "fullname": {
+      "firstname": "string",
+      "lastname": "string"
+    },
+    "email": "string",
+    "_id": "string"
+  }
+}
+```
+
+#### Error (400 Bad Request)
+```json
+{
+  "errors": [
+    {
+      "msg": "error message",
+      "param": "field_name"
+    }
+  ]
+}
+```
+
+### Validation Rules
+- First name must be at least 3 characters long
+- Email must be a valid email format
+- Password must be at least 6 characters long
+
+## Login Captain
+Authenticates a captain and returns a JWT token.
+
+### Endpoint
+```
+POST /captains/login
+```
+
+### Request Body
+```json
+{
+  "email": "string",    // valid email format
+  "password": "string"  // minimum 6 characters
+}
+```
+
+### Response
+
+#### Success (200 OK)
+```json
+{
+  "token": "jwt_token_string",
+  "captain": {
+    "fullname": {
+      "firstname": "string",
+      "lastname": "string"
+    },
+    "email": "string",
+    "_id": "string"
+  }
+}
+```
+
+#### Error (401 Unauthorized)
+```json
+{
+  "message": "Invalid email or password"
+}
+```
+
+#### Error (400 Bad Request)
+```json
+{
+  "errors": [
+    {
+      "msg": "error message",
+      "param": "field_name"
+    }
+  ]
+}
+```
+
+### Validation Rules
+- Email must be a valid email format
+- Password must be at least 6 characters long
+
+## Get Captain Profile
+Returns the current captain's profile information.
+
+### Endpoint
+```
+GET /captains/profile
+```
+
+### Headers
+```
+Authorization: Bearer jwt_token_string
+```
+
+### Response
+
+#### Success (200 OK)
+```json
+{
+  "fullname": {
+    "firstname": "string",
+    "lastname": "string"
+  },
+  "email": "string",
+  "_id": "string"
+}
+```
+
+#### Error (401 Unauthorized)
+```json
+{
+  "message": "Unauthorized"
+}
+```
+
+## Logout Captain
+Logs out the current captain and invalidates their token.
+
+### Endpoint
+```
+GET /captains/logout
+```
+
+### Headers
+```
+Authorization: Bearer jwt_token_string
+```
+
+### Response
+
+#### Success (200 OK)
+```json
+{
+  "message": "Logged out successfully"
+}
+```
+
+#### Error (401 Unauthorized)
+```json
+{
+  "message": "Unauthorized"
+}
+```

@@ -191,7 +191,13 @@ POST /captains/register
     "lastname": "string"     // minimum 3 characters
   },
   "email": "string",        // valid email format
-  "password": "string"      // minimum 6 characters
+  "password": "string",     // minimum 6 characters
+  "vehicle": {
+    "color": "string",      // minimum 3 characters
+    "plate": "string",      // minimum 3 characters
+    "capacity": "number",   // minimum 1
+    "vehicleType": "string" // must be 'car', 'motorcycle', or 'auto'
+  }
 }
 ```
 
@@ -207,6 +213,12 @@ POST /captains/register
       "lastname": "string"
     },
     "email": "string",
+    "vehicle": {
+      "color": "string",
+      "plate": "string",
+      "capacity": "number",
+      "vehicleType": "string"
+    },
     "_id": "string"
   }
 }
@@ -226,8 +238,13 @@ POST /captains/register
 
 ### Validation Rules
 - First name must be at least 3 characters long
+- Last name must be at least 3 characters long
 - Email must be a valid email format
 - Password must be at least 6 characters long
+- Vehicle color must be at least 3 characters long
+- Vehicle plate must be at least 3 characters long
+- Vehicle capacity must be at least 1
+- Vehicle type must be one of: car, motorcycle, auto
 
 ## Login Captain
 Authenticates a captain and returns a JWT token.

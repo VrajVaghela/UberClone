@@ -7,11 +7,11 @@ const captainSchema = new mongoose.Schema({
         firstname:{
             type : String,
             required: true,
-            minlenght: [3, 'First name must be at least 3 characters long']
+            minlength: [3, 'First name must be at least 3 characters long']
         },
         lastname:{
             type : String,
-            minlenght: [3, 'Last name must be at least 3 characters long']
+            minlength: [3, 'Last name must be at least 3 characters long']
         }
         },
         email: {
@@ -40,17 +40,17 @@ const captainSchema = new mongoose.Schema({
             color: {
                 type: String,
                 required: true,
-                minlenght: [3, 'Color must be at least 3 characters long']
+                minlength: [3, 'Color must be at least 3 characters long']
             },
             plate: {
                 type: String,
                 required: true,
-                minlenght: [3, 'Plate must be at least 3 characters long']
+                minlength: [3, 'Plate must be at least 3 characters long']
             },
             capacity: {
                 type: Number,
                 required: true,
-                minlenght: [1, 'Capacity must be at least 1 characters long']
+                minlength: [1, 'Capacity must be at least 1 characters long']
             },
             vehicleType: {
                 type: String,
@@ -60,7 +60,7 @@ const captainSchema = new mongoose.Schema({
         },
 
         location: {
-            lat:{
+            ltd:{
                 type: Number,
             },
             lng:{

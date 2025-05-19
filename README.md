@@ -10,6 +10,7 @@ This project is a clone of the Uber application, built with a React frontend and
 - [Frontend](#frontend)
 - [Backend](#backend)
 - [API Documentation](#api-documentation)
+- [Project Structure](#project-structure)
 - [License](#license)
 
 ## Features
@@ -18,6 +19,8 @@ This project is a clone of the Uber application, built with a React frontend and
 - JWT-based authentication
 - Profile management
 - Vehicle management for captains
+- **Live tracking of rides**
+- **Comprehensive ride management system**
 
 ## Technologies Used
 
@@ -96,6 +99,15 @@ The backend is built with Node.js and Express. It includes the following feature
 ### API Documentation
 
 The API documentation can be found in `Backend/README.md`.
+
+## Project Structure
+
+The project is organized as follows:
+
+- **Frontend/**: Contains the React-based frontend code.
+- **Backend/**: Contains the Node.js-based backend code.
+- **README.md**: Documentation for the project.
+- **package.json**: Dependency management for the project.
 
 ## License
 
